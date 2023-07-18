@@ -22,6 +22,19 @@ spec
 
 Part 1 and part 2 of the challenge are both present in the code.
 
+The app can be run the standard way using
+```bash
+$ rails s
+```
+
+When the app is running, requests can be made quite simply by issuing a GET request for (or navigateing a browser to) the URI:
+```
+http://localhost:3000/api/rick_and_morty_characters/?name=jerry
+```
+Output is raw JSON.
+
+I've added Apipie documentation just for fun, and it's mounted at root `http://localhost:3000/`
+
 #### **Part 1**
 I have integrated with Rick and Morty API's RESTful interface for simplicity, but please refer to my answer to question 2 for reflections on this decision.  The episode information comes as a string ("S01E03" for example), and so the code pulls this episode information, parses the string, and aggregates the counts the instances, putting them into a hash that is propagated to the output indexed by the `appearances` key.
 
