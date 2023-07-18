@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.2"
 
+gem 'apipie-rails'
+
 gem "faraday", "2.7.10"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

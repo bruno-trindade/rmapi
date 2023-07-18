@@ -3,6 +3,7 @@ require 'rick_and_morty_api/client/character'
 
 module RickAndMortyApi
   def self.query_character_by_name(name_query)
+    return [] unless name_query
     Client::Character.query_character_by_name(name_query)
   end
 
