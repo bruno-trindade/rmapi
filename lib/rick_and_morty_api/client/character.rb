@@ -33,9 +33,15 @@ module RickAndMortyApi
         construct_endpoint(CHARACTER_ENDPOINT, params)
       end
 
+      # This method makes additional calls to episode endpoints in the API to obtain the episode string.
+      # This string is of the format "SxxEyy" where xx is the season number and yy is the episode number.
+      # We parse the string to get the season, and keep count for that season in a Hash which is the
+      # return value of this method.
       def extract_appearances(episode_data)
         return {} unless episode_data&.any?
 
+        # I like this idiom of using scope when we're doing something a little complicated.  It helps protect
+        # against developers forgetting to paste the variable name at the end of all the operations.
         {}.tap do |seasons|
           episode_data.each do |episode_url|
             begin
