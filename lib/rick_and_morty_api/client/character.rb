@@ -8,10 +8,10 @@ module RickAndMortyApi
       end
 
       def query_character_by_name(name_query)
-        [].tap do |characters|
-          normalized_character_name = normalize_character_name(name_query)
-          endpoint                  = character_endpoint(name: normalized_character_name)
-          Rails.cache.fetch("season_appearances_#{normalized_character_name}", expires_in: CACHE_EXPIRY) do
+        normalized_character_name = normalize_character_name(name_query)
+        endpoint                  = character_endpoint(name: normalized_character_name)
+        Rails.cache.fetch("season_appearances_#{normalized_character_name}", expires_in: CACHE_EXPIRY) do
+          [].tap do |characters|
             while endpoint.present?
               begin
                 response = make_request(endpoint)
